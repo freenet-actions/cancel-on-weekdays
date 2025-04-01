@@ -25,8 +25,10 @@ try {
 	
 } catch(error) {
 	core.setFailed(error.message);
+	core.setOutput("cancelled", true);
 	core.setOutput("cancel_reason", error.message);
 	process.exit(1);
 }
 
+core.setOutput("cancelled", false);
 console.log("The current workflow was not run on a blocked weekday, so it was not cancelled.");

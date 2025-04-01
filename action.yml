@@ -6,6 +6,8 @@ inputs:
     required: false
     default: "friday, saturday, sunday"
 outputs:
+  cancelled:
+    description: 'Whether the workflow was cancelled or not'
   cancel_reason:
     description: 'The reason of the cancellation of the workflow. Empty if the workflow was not cancelled.'
 runs:
