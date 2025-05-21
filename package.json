@@ -1,0 +1,25 @@
+{
+  "name": "cancel-on-weekdays",
+  "version": "1.0.0",
+  "description": "This action cancels the workflow (or, to be exact, fails the step) if it was run on one of the specified weekdays.",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.ts --license licenses.txt && terser ./dist/index.js --compress --comments false --output ./dist/index.js"
+  },
+  "keywords": ["cancel", "block", "blocker", "weekday", "weekdays", "weekend", "friday"],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freenet-actions/cancel-on-weekdays/issues"
+  },
+  "homepage": "https://github.com/freenet-actions/cancel-on-weekdays",
+  "dependencies": {
+    "@actions/core": "1.11.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.38.3",
+    "terser": "5.39.2",
+    "typescript": "5.8.3",
+    "@types/node": "20.17.50"
+  }
+}

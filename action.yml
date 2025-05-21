@@ -1,0 +1,15 @@
+name: 'Cancel on Weekdays'
+description: 'This action cancels the workflow (or, to be exact, fails the step) if it was run on one of the specified weekdays.'
+inputs:
+  blocked_days:
+    description: 'A case-insensitive list of weekdays (1-7 or English words) that workflows calling this action should be cancelled on. Separated either through lines, or commas, or both. See README for more detailed info and examples.'
+    required: false
+    default: "friday, saturday, sunday"
+outputs:
+  cancelled:
+    description: 'Whether the workflow was cancelled or not'
+  cancel_reason:
+    description: 'The reason of the cancellation of the workflow. Empty if the workflow was not cancelled.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
