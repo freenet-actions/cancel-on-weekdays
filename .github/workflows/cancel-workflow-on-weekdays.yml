@@ -1,0 +1,97 @@
+name: Cancel on Weekdays
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Where to deploy'
+        required: true
+        default: 'prod'
+        type: choice
+        options:
+          - git
+          - prod
+
+      enforceWeekendDeployment:
+        description: 'Enforce weekend deployment'
+        type: boolean
+        default: false
+
+jobs:
+  cancel-on-weekdays:
+    if: inputs.environment == 'prod' && inputs.enforceWeekendDeployment == false
+    name: Cancel on Weekdays
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel on Weekdays
+        uses: freenet-actions/cancel-on-weekdays@main
+        with:
+          blocked_days: |
+            friday
+            saturday
+            sunday
+  cancel-on-weekdays-fails:
+    if: inputs.environment == 'prod' && inputs.enforceWeekendDeployment == false
+    name: Cancel on Weekdays (fails)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Cancel on Weekdays
+        uses: freenet-actions/cancel-on-weekdays@main
+        with:
+          blocked_days: |
+            monday
+            tuesday
+            wednesday
+            thursday
+            friday
+            saturday
+            sunday
+  cancel-on-weekdays-sl:
+    if: inputs.environment == 'prod' && inputs.enforceWeekendDeployment == false
+    name: Cancel on Weekdays (single-line)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel on Weekdays
+        uses: freenet-actions/cancel-on-weekdays@main
+        with:
+          blocked_days: "friday, saturday, sunday"
+  cancel-on-weekdays-sl-fails:
+    if: inputs.environment == 'prod' && inputs.enforceWeekendDeployment == false
+    name: Cancel on Weekdays (single-line, fails)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Cancel on Weekdays
+        uses: freenet-actions/cancel-on-weekdays@main
+        with:
+          blocked_days: "sunday, monday, tuesday, wednesday, thursday, friday, saturday"
+  cancel-on-weekdays-numbers:
+    if: inputs.environment == 'prod' && inputs.enforceWeekendDeployment == false
+    name: Cancel on Weekdays (numbers)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel on Weekdays
+        uses: freenet-actions/cancel-on-weekdays@main
+        with:
+          blocked_days: |
+            5
+            6
+            7
+  cancel-on-weekdays-numbers-fails:
+    if: inputs.environment == 'prod' && inputs.enforceWeekendDeployment == false
+    name: Cancel on Weekdays (numbers, fails)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Cancel on Weekdays
+        uses: freenet-actions/cancel-on-weekdays@main
+        with:
+          blocked_days: |
+            1
+            2
+            3
+            4
+            5
+            6
+            7
