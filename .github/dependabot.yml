@@ -4,11 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    assignees:
-      - "dloetzke"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-    assignees:
-      - "dloetzke"

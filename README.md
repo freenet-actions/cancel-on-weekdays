@@ -14,7 +14,7 @@ A case-insensitive list of weekdays (1-7 or English weekday names) that workflow
 
 See below for more detailed info and examples.
 
-**0 = Sunday...6 = Saturday**
+**1 = Monday...7 = Sunday**
 
 ## Outputs
 

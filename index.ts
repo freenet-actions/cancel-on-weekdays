@@ -1,13 +1,13 @@
 const core = require('@actions/core');
 
 try {
-	const days: string[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+	const days: string[] = ['0', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 	let today: number = new Date().getDay();
 
 	if(today == 0) {
 		today = 7; // Correcting 'today' to range from 1-7, Monday-Sunday.
 	}
-	
+
 	const blockedDays: string = core.getInput('blocked_days', { required: false }).replace("-", "").trim().toLowerCase();
 	
 	for(const dayLine of blockedDays.split("\n")) {
