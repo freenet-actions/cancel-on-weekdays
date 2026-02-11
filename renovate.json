@@ -1,0 +1,3 @@
+{
+    "extends": ["github>freenet-actions/renovate-preset"]
+}
