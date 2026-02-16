@@ -31,13 +31,13 @@ The reason of the cancellation of the workflow. Empty if the workflow was not ca
 Note: This is the default behavior.
 
 ```yaml
-uses: freenet-actions/cancel-on-weekdays@v1
+uses: freenet-actions/cancel-on-weekdays@v2 # Please pin a commit hash instead.
 ```
 
 ### Cancelling on specific days
 
 ```yaml
-uses: freenet-actions/cancel-on-weekdays@v1
+uses: freenet-actions/cancel-on-weekdays@v2 # Please pin a commit hash instead.
 with:
   blocked_days: |
     saturday
@@ -50,7 +50,7 @@ with:
 **Note:** Spaces after the commas are *optional*.
 
 ```yaml
-uses: freenet-actions/cancel-on-weekdays@v1
+uses: freenet-actions/cancel-on-weekdays@v2 # Please pin a commit hash instead.
 with:
   blocked_days: 'saturday, sunday, monday'
 ```
@@ -60,7 +60,7 @@ with:
 **Note:** Also works in a single line, see above.
 
 ```yaml
-uses: freenet-actions/cancel-on-weekdays@v1
+uses: freenet-actions/cancel-on-weekdays@v2 # Please pin a commit hash instead.
 with:
   blocked_days: |
     6
@@ -74,7 +74,7 @@ with:
 
 ```yaml
 if: inputs.environment == 'prod'
-uses: freenet-actions/cancel-on-weekdays@v1
+uses: freenet-actions/cancel-on-weekdays@v2 # Please pin a commit hash instead.
 with:
   blocked_days: 'saturday, sunday, monday'
 ```
@@ -83,7 +83,7 @@ with:
 
 ```yaml
 if: inputs.enforce == false
-uses: freenet-actions/cancel-on-weekdays@v1
+uses: freenet-actions/cancel-on-weekdays@v2 # Please pin a commit hash instead.
 with:
   blocked_days: 'saturday, sunday, monday'
 ```
