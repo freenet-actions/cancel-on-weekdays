@@ -11,5 +11,5 @@ outputs:
   cancel_reason:
     description: 'The reason of the cancellation of the workflow. Empty if the workflow was not cancelled.'
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
